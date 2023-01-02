@@ -1,0 +1,57 @@
+function apartmentHunting(blocks, reqs) {
+  let noOfBlocks = blocks.length;
+    let noOfRequirements = reqs.length;
+    let maxReq = 0;
+    let returnVal = 0 ;
+    for(let i=1;i<noOfBlocks-1;i++){
+        const arr = {};
+        let values;
+        let block1 = blocks[i-1];
+        for(let j=0;j<noOfRequirements;j++){
+            block1[reqs[j]] ? arr[reqs[j]] = true : ""
+        }
+        values = Object.values(arr);
+        if(values.length == noOfRequirements){
+            return i-1
+        }
+        let block2 = blocks[i];
+        for(let j=0;j<noOfRequirements;j++){
+            block2[reqs[j]] ? arr[reqs[j]] = true : ""
+        }
+        values = Object.values(arr);
+        if(values.length == noOfRequirements){
+            return i
+        }
+        let block3 = blocks[i+1];
+        let len3 = values.length;
+        for(let j=0;j<noOfRequirements;j++){
+            
+            block3[reqs[j]] ? arr[reqs[j]] = true : ""
+        }
+        values = Object.values(arr);
+        if(values.length == noOfRequirements){
+            if(len3 >= noOfRequirements/2 ) {
+                return i
+            }
+            return i+1
+        }
+    }
+    for(let i=0;i<noOfBlocks;i++){
+        const arr = {};
+        let values;
+        let block = blocks[i];
+        for(let j=0;j<noOfRequirements;j++){
+            block[reqs[j]] ? arr[reqs[j]] = true : ""
+        }
+        values = Object.values(arr);
+        if(values.length > maxReq){
+            maxReq = values.length;
+            returnVal = i;
+        }
+    }
+    return returnVal;
+}
+
+// Do not edit the line below.
+exports.apartmentHunting = apartmentHunting;
+

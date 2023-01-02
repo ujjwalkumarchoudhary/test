@@ -1,0 +1,9 @@
+step1 :- find the length of blocks which i get in function as first parameter.
+step2 :- find the length of requirements which i get in function as second parameter.
+step3 :- i initialized two variales maxReq, returnVal to get the maximum requirements match from each block.
+step4 :- i use for loop to go through all blocks. I initialized it from 1 and go till length of blocks.
+step5 :- within for loop i use other for loop to to match the requirements.
+step6 :- within for loop i use to find adjacent block of i block by subtracting and add 1 to i.
+step7 :- within for loop i check the condition using if statement if it fullfil the condition then i return the value of i.
+step8 :- which function i use other for loop to find the block whose max factilities match the requirements.
+step8 :- i return that value if all the requirements not match to any block.
